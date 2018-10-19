@@ -1,0 +1,19 @@
+node {
+   // def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '5b12206a-64fa-47c7-86c5-b3b801ad59bd', url: 'https://github.com/zhongnan21/rubytest']]])
+   }
+   stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+         echo "build successful"
+      } else {
+         echo "build successful"
+      }
+   }
+   stage('Results') {
+      powershell '''ls
+D:\\programs\\Ruby25-x64\\bin\\ruby.exe .\\array.rb'''
+   }
+}
